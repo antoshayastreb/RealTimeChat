@@ -25,4 +25,4 @@ class InMemorySessionStore extends SessionStore {
 
 module.exports = {
     InMemorySessionStore
-  };
+};
