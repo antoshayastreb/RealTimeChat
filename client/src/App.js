@@ -1,15 +1,21 @@
 import logo from './logo.svg';
-import { Routes, Route, Link } from "react-router-dom";
-import { Home } from './components';
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { useContext } from "react";
+import Home from './components/Home/Home';
+import Chat from './components/Chat/Chat';
+import { AuthContext } from "./context/AuthContext";
 import './App.css';
 
 function App() {
+  const { user } = useContext(AuthContext);
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          {user ? <Chat /> : <Home />}
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
