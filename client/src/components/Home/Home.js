@@ -1,23 +1,10 @@
-import { useState, useRef } from 'react'
-import { Routes, Link } from 'react-router-dom'
-import { Form, Tab, Tabs, Button } from 'react-bootstrap'
-import styled, { keyframes } from 'styled-components';
+import { useState, useRef } from 'react';
+import { Routes, Link } from 'react-router-dom';
+import { Form, Tab, Tabs, Button } from 'react-bootstrap';
+import Login from './Login';
+import Register from './Register';
 
-const fadeIn = keyframes`
-    from: {
-        opacity: 0
-    },
-    to: {
-        opacity: 1
-    }
-`;
-
-const FadeIn = styled.div`
-    display: inline-block;
-`
-
-
-export function Home(){
+export default function Home(){
     return (
         <div className="App">
            <h1>Добро пожаловать!</h1>
@@ -42,41 +29,8 @@ function ControlledTabs() {
             <Login></Login>
         </Tab>
         <Tab eventKey="register" title="Регистрация">
-               
+            <Register></Register>  
         </Tab>
       </Tabs>
-    );
-  }
-
-
-function Login(){
-
-    const linkRef = useRef(null)
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-    }
-
-
-    return(
-        <div>
-            <h1>Авторизация</h1>
-            <Form
-            className='mt-5 w-50'
-            style={{ margin: '0 auto' }}
-            onSubmit={handleSubmit}
-            >
-                <Form.Group className="mb-3">
-                    <Form.Label>Логин:</Form.Label>
-                    <Form.Control/>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Пароль:</Form.Label>
-                    <Form.Control type="password"/>
-                </Form.Group>     
-            </Form>
-        </div>
-        
     );
 }
