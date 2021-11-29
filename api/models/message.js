@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"), Schema = mongoose.Schema;
 
 const MessageSchema = new mongoose.Schema(
   {
@@ -6,6 +6,9 @@ const MessageSchema = new mongoose.Schema(
       type: String,
     },
     sender: {
+      type: String,
+    },
+    senderProfilePicture:{
       type: String,
     },
     text: {

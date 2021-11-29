@@ -63,21 +63,20 @@ export default function Login() {
             </Button>
         </Form>    
     );
-}
 
-function MyAlert({response,showAlert}) {
-    const [show, setShow] = useState(showAlert);
-  
-    return (
-      <>
-        <Alert show={show} variant="danger" onClose={() => setShow(false)} dismissible>
-          <Alert.Heading>Ошибка</Alert.Heading>
-          <p>
-            {response}
-          </p>
-        </Alert>
-  
-        
-      </>
-    );
-  }
+    function MyAlert({response,showDangerAlert}) {
+    
+      return (
+        <>
+          <Alert show={showDangerAlert} variant="danger" onClose={() => setshowDangerAlert(false)} dismissible>
+            <Alert.Heading>Ошибка</Alert.Heading>
+            <p>
+              {response}
+            </p>
+          </Alert>
+    
+          
+        </>
+      );
+    }
+}
